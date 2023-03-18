@@ -13,7 +13,7 @@ class Food extends Model
   }
     public function Category()
     {
-      return $this->belongsTo('App\Models\Category');
+      return $this->belongsTo(Category::class, 'id_category');
     }
     use HasFactory;
     protected $fillable = [
@@ -21,7 +21,7 @@ class Food extends Model
        'name',
        'description',
        'price',
-       'category_id',
+       'id_category',
        'image',
        'reduction',
     ];

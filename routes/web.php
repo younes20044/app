@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Visitor ;
 use App\Models\Commentaire;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -41,7 +42,11 @@ Route::get('categories', 'App\Http\Controllers\CategoryController@getCategories'
 Route::post('addCategory', 'App\Http\Controllers\CategoryController@addCategory')->name("addCategory");
 Route::post('addReservation', 'App\Http\Controllers\ResarvationController@addReservation')->name("addReservation");
 Route::get('delete/{id}', 'App\Http\Controllers\CategoryController@removeCategory')->name("removeCategory");
-Route::get('foods', 'App\Http\Controllers\FoodController@getfoods')->name("foods");
+
+Route::get('foods/{id}', 'App\Http\Controllers\FoodController@getfoods')->name("foods");
+Route::post('storeFood', 'App\Http\Controllers\FoodController@storeFood')->name("storeFood");
+Route::get('Deletefoods/{id}', 'App\Http\Controllers\FoodController@deletefood')->name("deletefood");
+Route::post('updatefood/{food}', 'App\Http\Controllers\FoodController@update_food')->name("update_food");
 Route::get('/about', function () {
     if (Auth::check()) {
         $user = Auth::user();}
