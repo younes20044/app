@@ -141,13 +141,7 @@ Foods | Admin
                                  <textarea class="form-control" id="description" name="description" rows="4"  required>{{$food->description}}</textarea>
                               </div>
                              
-                              <div class="col-md-9">
-                                    <label for="file"  class="custom-file">
-                                                <input type="file" id="file" name="file" class="custom-file-input">
-                                                <span class="custom-file-control"></span>
-                                            </label>
-                                          
-                                 </div>
+                             
 
                               <div class="col-xs-3"  >
                             

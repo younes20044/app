@@ -14,7 +14,7 @@ class ResarvationController extends Controller
 {
     public function addReservation(Request $request){
         $Resarvation = new Resarvation;
-        if (Auth::check()) {
+        
             $user = Auth::user();
             
         $food=Food::Find($request->food_id);
@@ -25,6 +25,7 @@ class ResarvationController extends Controller
        $Resarvation->address_reservation=$request->address_reservation;
        $Resarvation->numero_de_telephone=$request->numero_de_telephone;
        $Resarvation->confimer="no";
+       $Resarvation->date = now()->format('Y-m-d');
 
         $Resarvation->save();
       
@@ -33,9 +34,17 @@ class ResarvationController extends Controller
         return view('menu')->with('food',$food)->with('category',$category)->with('user',$user);
         
 
-        } else {
-           
-      
-    
+}
+    public function getReservations(){
+        $reservations = Resarvation::orderBy('id', 'desc')->get();
+        return view('Admin/reservation')->with('reservations',$reservations);
     }
-}}
+    public function updateStatus($id){
+        $reservation = Resarvation::find($id);
+        $reservation->confimer = 'yes';
+        $reservation->save();
+        return redirect()->back();
+    }
+
+
+}

@@ -17,11 +17,12 @@ class UserController extends Controller
     }
     public function dashboard(){
         $usersCount = User::all()->count();
-       $categoryCount  = Category::all()->count();
-       $foodCount  = Food::all()->count();
-       $resarvationCount = Resarvation::all()->count();
+      
+       
        $visitors = Visitor::where('visit_date', now()->format('Y-m-d'))->count();
-       return view('Admin/dashboardAdmin')->with('usersCount',$usersCount)->with('$categoryCount',$categoryCount)->with('foodCount',$foodCount)->with('resarvationCount',$resarvationCount)->with('visitors',$visitors);
+       $orders = Resarvation::where('date',now()->format('Y-m-d'))->count();
+       $earn =Resarvation::where('date',now()->format('Y-m-d'))->sum('prix');
+       return view('Admin/dashboardAdmin')->with('usersCount',$usersCount)->with('orders',$orders)->with('visitors',$visitors)->with('earn',$earn);
         
     }
 }

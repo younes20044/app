@@ -20,6 +20,7 @@ return new class extends Migration
             $table->Integer('nb');
             $table->string("numero_de_telephone");
             $table->string("confimer");
+            $table->date('date');
             $table->timestamps();
             $table->foreign('user_id')
           ->references('id')
