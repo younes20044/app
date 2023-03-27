@@ -33,14 +33,14 @@ $visitor->save();
 $user=null;
 $commentaire=Commentaire::All();
     return view('welcome')->with('food',$food)->with('category',$category)->with('user',$user)->with('commentaire',$commentaire);
-});
+})->name('home');
 
 Route::get('users', 'App\Http\Controllers\UserController@getUsers')->name("users")->middleware('App\Http\Middleware\admin');
 Route::get('dashboard', 'App\Http\Controllers\UserController@dashboard')->name("dashboard")->middleware('App\Http\Middleware\admin');
 
 Route::get('categories', 'App\Http\Controllers\CategoryController@getCategories')->name("Categories")->middleware('App\Http\Middleware\admin');
 Route::post('addCategory', 'App\Http\Controllers\CategoryController@addCategory')->name("addCategory")->middleware('App\Http\Middleware\admin');
-Route::post('addReservation', 'App\Http\Controllers\ResarvationController@addReservation')->name("addReservation")->middleware('App\Http\Middleware\admin');
+Route::post('addReservation', 'App\Http\Controllers\ResarvationController@addReservation')->name("addReservation");
 Route::get('delete/{id}', 'App\Http\Controllers\CategoryController@removeCategory')->name("removeCategory")->middleware('App\Http\Middleware\admin');
 
 Route::get('foods/{id}', 'App\Http\Controllers\FoodController@getfoods')->name("foods")->middleware('App\Http\Middleware\admin');

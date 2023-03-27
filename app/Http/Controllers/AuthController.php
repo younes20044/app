@@ -39,7 +39,11 @@ class AuthController extends Controller
             $user = null; 
             $commentaire=Commentaire::All();
         if (Auth::attempt($credentials)) {
+        
             $user = Auth::user();
+            if($user->role== 1){
+                return redirect(route('dashboard'));
+            }
             return view('welcome')->with('food',$food)->with('category',$category)->with('user',$user)->with('commentaire',$commentaire);
             
         }
@@ -88,10 +92,7 @@ class AuthController extends Controller
     public function logout() {
         Session::flush();
         Auth::logout();
-        $user=null;
-        $commentaire=Commentaire::All();
-        $category = Category::OrderBy('name')->get();
-        $food = Food::OrderBy('name')->get();
-        return view('welcome')->with('food',$food)->with('category',$category)->with('user',$user)->with('commentaire',$commentaire);
+      
+        return redirect(route('home'));
     }
 }

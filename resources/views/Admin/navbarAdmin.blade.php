@@ -96,7 +96,7 @@
                            <div class="dropdown-divider m-0"></div>
                         </li>
                         <li><a href="#"><i class="icon-lock"></i> Lock Screen</a></li>
-                        <li><a href="login1.html"><i class="icon-logout"></i> Logout</a></li>
+                        <li><a href="{{route('logout')}}"><i class="icon-logout"></i> Logout</a></li>
 
                      </ul>
                   </li>

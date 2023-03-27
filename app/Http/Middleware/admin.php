@@ -22,12 +22,8 @@ class admin
            if ($user->role == 1){
             return $next($request);
            }
-           else{
-            return response('Unauthorized', 401);
-           }
-        }else{
-            return Redirect(route('login'));
         }
+        abort(404);
         
     }
 }
