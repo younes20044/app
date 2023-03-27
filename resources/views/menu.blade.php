@@ -21,6 +21,7 @@ class="sub_page"
       </div>
    
       <ul class="filters_menu">
+      <li class="active" data-filter="*">All</li>
       @foreach( $category as $categorys)
         <li data-filter=".{{$categorys->name}}">{{$categorys->name}}</li>
       @endforeach
@@ -33,12 +34,12 @@ class="sub_page"
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/food/{{$foods->image}}" alt="">
+                  <img src="images/{{$foods->image}}" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                  {{$foods->name}}
-                  </h5>
+                  {{$foods->name}} {{$foods->category->name}}
+                  </h5> 
                   <p>
                   {{$foods->description}}
                   </p>
