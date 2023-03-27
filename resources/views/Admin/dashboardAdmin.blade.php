@@ -36,9 +36,9 @@ dashboard | Admin
                </div>
                <div class="col-lg-3 col-md-6">
                   <div class="card dashboard-product">
-                     <span>Products</span>
-                     <h2 class="dashboard-total-products">$<span>30,780</span></h2>
-                     <span class="label label-success">Sales</span>Reviews
+                     <span>orders today</span>
+                     <h2 class="dashboard-total-products"><span>{{$orders}}</span></h2>
+                     <span class="label label-success">order</span>
                      <div class="side-box">
                         <i class="ti-direction-alt text-success-color"></i>
                      </div>
@@ -46,9 +46,9 @@ dashboard | Admin
                </div>
                <div class="col-lg-3 col-md-6">
                   <div class="card dashboard-product">
-                     <span>Products</span>
-                     <h2 class="dashboard-total-products">$<span>30,780</span></h2>
-                     <span class="label label-danger">Sales</span>Reviews
+                     <span>earn today</span>
+                     <h2 class="dashboard-total-products"> <span>  {{$earn}}</span> MAD</h2>
+                     <span class="label label-danger">earn </span>
                      <div class="side-box">
                         <i class="ti-rocket text-danger-color"></i>
                      </div>

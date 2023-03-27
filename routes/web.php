@@ -54,6 +54,11 @@ Route::get('/about', function () {
     $user = null;}
     return view('about')->with('user',$user);
 })->name('about');
+Route::get('reservations', 'App\Http\Controllers\ResarvationController@getReservations')->name("getReservations")->middleware('App\Http\Middleware\admin');
+Route::get('updateStatus/{id}', 'App\Http\Controllers\ResarvationController@updateStatus')->name("updateStatus")->middleware('App\Http\Middleware\admin');
+
+
+
 
 
 

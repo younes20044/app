@@ -56,7 +56,7 @@
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="index.html" class="logo"><img class="img-fluid able-logo" src="assets/images/logo.png" alt="Theme-logo"></a>
+         <a href="index.html" class="logo"><img class="img-fluid able-logo" src="images/food/burger.png" alt="Theme-logo" style="width: 35px;height: 35px; "></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -82,24 +82,14 @@
 
                   </li>
                   <!-- User Menu-->
-                  <li class="dropdown" >
-                     <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
+                  
+                     <a href="{{route('logout')}}"  style="color:antiquewhite" >
                         
-                        <span>ILias <b>Doe</b> <i class=" icofont icofont-simple-down"></i></span>
+                        <span>logout <i class="fa-solid fa-arrow-right-from-bracket" style="color: antiquewhite;"></i> </span>
 
                      </a>
-                     <ul class="dropdown-menu settings-menu">
-                        <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                        <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="#"><i class="icon-envelope-open"></i> My Messages</a></li>
-                        <li class="p-0">
-                           <div class="dropdown-divider m-0"></div>
-                        </li>
-                        <li><a href="#"><i class="icon-lock"></i> Lock Screen</a></li>
-                        <li><a href="{{route('logout')}}"><i class="icon-logout"></i> Logout</a></li>
-
-                     </ul>
-                  </li>
+                     
+                  
                </ul>
 
               
@@ -155,7 +145,7 @@
                     </ul>
                 </li>
                 <li class="treeview" >
-                    <a class="waves-effect waves-dark" href="{{route('users')}}">
+                    <a class="waves-effect waves-dark" href="{{route('getReservations')}}">
                     <i class="fa-solid fa-square-plus"></i><span> Orders</span>
                     </a>                
                 </li>

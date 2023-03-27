@@ -125,7 +125,7 @@ Home
             <div class="box">
                 <div>
                   <div class="img-box">
-                    <img src="images/{{$food[$i]->image}}"   alt="">
+                    <img src="images/food/{{$food[$i]->image}}"   alt="">
                   </div>
                   <div class="detail-box">
                     <h5>
