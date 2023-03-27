@@ -53,7 +53,8 @@ class AuthController extends Controller
     public function postRegistration(Request $request)
     {  
         request()->validate([
-        'name' => 'required',
+        'first_name' => 'required',
+        'last_name' => 'required',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:6',
         ]);
@@ -80,13 +81,14 @@ class AuthController extends Controller
     public function create(array $data)
     {
       return User::create([
-        'first_name' => $data['name'],
-        'last_name' => $data['name'],
+        'first_name' => $data['first_name'],
+        'last_name' => $data['last_name'],
         'email' => $data['email'],
         'password' => Hash::make($data['password']),
         'role' => '0' ,
         'adresse' => $data['adresse']
       ]);
+      return redirect(route('login'));
     }
      
     public function logout() {
