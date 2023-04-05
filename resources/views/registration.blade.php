@@ -9,62 +9,55 @@
 <meta name="author" content="">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--Bootsrap 4 CDN-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="{{url('style.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{!! asset('css/styleregist.css') !!}">
  
 </head>
 <body>
-<div class="container-fluid">
-  <div class="row no-gutter">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-    <div class="col-md-8 col-lg-6">
-      <div class="login d-flex align-items-center py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Register here!</h3>
-               <form action="{{url('post-registration')}}" method="POST" id="regForm">
-                 {{ csrf_field() }}
-                <div class="form-label-group">
-                  <input type="text" id="inputName" name="name" class="form-control" placeholder="Full name" autofocus>
-                  <label for="inputName">Name</label>
- 
-                  @if ($errors->has('name'))
-                  <span class="error">{{ $errors->first('name') }}</span>
-                  @endif       
- 
-                </div> 
-                <div class="form-label-group">
-                  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" >
-                  <label for="inputEmail">Email address</label>
- 
-                  @if ($errors->has('email'))
-                  <span class="error">{{ $errors->first('email') }}</span>
-                  @endif    
-                </div> 
- 
-                <div class="form-label-group">
-                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
-                  <label for="inputPassword">Password</label>
-                   
-                  @if ($errors->has('password'))
-                  <span class="error">{{ $errors->first('password') }}</span>
-                  @endif  
-                </div>
-                <input type="text" name="adresse" id="inputPassword" class="form-control" placeholder="Password">
-                  <label for="inputadresse">adresse</label>
-                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign Up</button>
-                <div class="text-center">If you have an account?
-                  <a class="small" href="{{url('login')}}">Sign In</a></div>
-              </form>
+<div class="main">
+
+<!-- Sign up form -->
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sign up</h2>
+                <form action="{{url('post-registration')}}" method="POST">
+                {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="first_name" id="name" placeholder="first name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="last_name" id="name" placeholder="last name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse"><i class="zmdi zmdi-email"></i></label>
+                        <input type="text" name="adresse" id="" placeholder="Your adresse"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="password" id="pass" placeholder="Password"/>
+                    </div>
+                    
+                    
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                    </div>
+                </form>
             </div>
-          </div>
+            <div class="signup-image">
+                <figure><img src="images/food/7600037.jpg" alt="sing up image"></figure>
+                <a href="#" class="signup-image-link">I am already member</a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
- 
+</section>
+<script src="{!! asset('js/jquery.min.js') !!}"></script>
 </body>
 </html>
