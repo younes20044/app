@@ -34,7 +34,7 @@ class="sub_page"
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/{{$foods->image}}" alt="">
+                  <img src="{!! asset('images/food/'.$foods->image) !!}" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
